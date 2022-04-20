@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="144dp"
+    android:layout_marginTop="3dp"
     android:orientation="horizontal">
 
 
@@ -43,6 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:text="Item Name"
+                    android:fontFamily="@font/allerta"
                     android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
@@ -59,6 +61,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
                         android:text="$"
+                        android:fontFamily="@font/allerta"
                         android:textColor="@color/red"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -70,6 +73,7 @@
                         android:layout_marginStart="3dp"
                         android:layout_weight="1"
                         android:text="20.03"
+                        android:fontFamily="@font/allerta"
                         android:textColor="@color/red"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -81,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:text="TextView"
+                    android:fontFamily="@font/allerta"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>

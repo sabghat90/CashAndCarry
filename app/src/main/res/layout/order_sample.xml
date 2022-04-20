@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="120dp"
+    android:layout_marginTop="3dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -11,7 +12,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="6dp"
         app:cardCornerRadius="4dp"
         app:cardElevation="4dp">
 
@@ -41,6 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="1dp"
                     android:padding="1dp"
+                    android:fontFamily="@font/allerta"
                     android:text="Item Name"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -57,6 +59,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="1dp"
                         android:padding="1dp"
+                        android:fontFamily="@font/allerta"
                         android:text="Order Number"
                         android:textColor="@color/black"
                         android:textSize="16sp"
@@ -69,6 +72,7 @@
                         android:layout_marginStart="6dp"
                         android:layout_weight="1"
                         android:padding="1dp"
+                        android:fontFamily="@font/allerta"
                         android:text="21457"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="16sp"
@@ -87,6 +91,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Price"
+                        android:fontFamily="@font/allerta"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -96,6 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
                         android:text="$"
+                        android:fontFamily="@font/allerta"
                         android:textColor="@color/red" />
 
                     <TextView
@@ -104,6 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="12"
+                        android:fontFamily="@font/allerta"
                         android:textColor="@color/red" />
 
                 </LinearLayout>

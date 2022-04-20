@@ -11,6 +11,10 @@ public class OrdersModel {
         this.orderNumber = orderNumber;
     }
 
+    public OrdersModel() {
+
+    }
+
     public int getOrderImage() {
         return orderImage;
     }

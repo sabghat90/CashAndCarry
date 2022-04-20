@@ -44,10 +44,10 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/add"
+                    android:id="@+id/subtract"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/minus_icon" />
+                    android:layout_height="35dp"
+                    app:srcCompat="@drawable/minus" />
 
                 <TextView
                     android:id="@+id/quantity"
@@ -55,16 +55,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_marginEnd="4dp"
+                    android:fontFamily="@font/allerta"
                     android:text="1"
                     android:textColor="@color/red"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/subtract"
+                    android:id="@+id/add"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/plus_icon" />
+                    android:layout_height="35dp"
+                    app:srcCompat="@drawable/add" />
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -82,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="9dp"
+            android:fontFamily="@font/allerta"
             android:gravity="center"
             android:text="@string/detail_description" />
 
@@ -95,7 +98,9 @@
             android:hint="Your Name"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:padding="9dp" />
+            android:padding="9dp"
+            android:fontFamily="@font/allerta"
+            android:autofillHints="" />
 
         <EditText
             android:id="@+id/detail_phone_number"
@@ -104,9 +109,11 @@
             android:background="@drawable/edittext_background"
             android:ems="10"
             android:hint="Phone"
+            android:fontFamily="@font/allerta"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:padding="9dp" />
+            android:padding="9dp"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/textView8"
@@ -114,6 +121,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
+            android:fontFamily="@font/allerta"
             android:text="Price"
             android:textColor="@color/black"
             android:textSize="16sp" />
@@ -129,6 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$"
+                android:fontFamily="@font/allerta"
                 android:textColor="@color/red"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -138,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
+                android:fontFamily="@font/allerta"
                 android:textColor="@color/red"
                 android:textSize="20sp"
                 android:textStyle="bold" />

@@ -1,7 +1,11 @@
 package com.sabghat.cashandcarry;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -40,5 +44,21 @@ public class Dashboard extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         binding.recyclerview.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    public boolean onCreatePanelMenu(int featureId, @NonNull Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreatePanelMenu(featureId, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.orders:
+                startActivity(new Intent(Dashboard.this, Order.class));
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
