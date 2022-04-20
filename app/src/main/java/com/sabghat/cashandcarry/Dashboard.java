@@ -1,10 +1,9 @@
 package com.sabghat.cashandcarry;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.os.Bundle;
-import android.view.WindowManager;
 
 import com.sabghat.cashandcarry.Adapters.MainAdapter;
 import com.sabghat.cashandcarry.Models.MainModel;
@@ -20,8 +19,7 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityDashboardBinding.inflate(getLayoutInflater());
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(binding.getRoot());
 
         ArrayList<MainModel> mainModelArrayList = new ArrayList<>();

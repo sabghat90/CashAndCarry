@@ -1,6 +1,7 @@
 package com.sabghat.cashandcarry.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.sabghat.cashandcarry.Models.MainModel;
+import com.sabghat.cashandcarry.OrderDetail;
 import com.sabghat.cashandcarry.R;
 
 import java.util.ArrayList;
@@ -40,6 +42,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.item_name.setText(model.getItemName());
         holder.item_price.setText(model.getItemPrice());
         holder.item_description.setText(model.getItemDescription());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent lunchDetailActivity = new Intent(ctx, OrderDetail.class);
+                lunchDetailActivity.putExtra("image",model.getItemImage());
+                lunchDetailActivity.putExtra("price",model.getItemPrice());
+                lunchDetailActivity.putExtra("description",model.getItemDescription());
+                lunchDetailActivity.putExtra("name",model.getItemName());
+
+                ctx.startActivity(lunchDetailActivity);
+            }
+        });
     }
 
     @Override
