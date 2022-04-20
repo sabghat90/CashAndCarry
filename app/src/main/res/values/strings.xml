@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Cash and Carry</string>
     <string name="header_tv">Cash And Carry</string>
+    <string name="detail_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
 </resources>

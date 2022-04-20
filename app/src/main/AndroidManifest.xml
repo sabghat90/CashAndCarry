@@ -10,10 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CashAndCarry">
         <activity
-            android:name=".order"
-            android:exported="false" />
-        <activity
-            android:name=".Dashboard"
+            android:name=".OrderDetail"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +18,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Order"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Dashboard"
+            android:exported="true"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
