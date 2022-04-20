@@ -1,6 +1,7 @@
 package com.sabghat.cashandcarry.Adapters;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,34 +10,41 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sabghat.cashandcarry.Models.MainModel;
 import com.sabghat.cashandcarry.R;
 
 import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
-    ArrayList<MainAdapter> mainAdapterArrayList;
+    ArrayList<MainModel> mainModelArrayList;
     Context ctx;
 
-    public MainAdapter(ArrayList<MainAdapter> mainAdapterArrayList, Context ctx) {
-        this.mainAdapterArrayList = mainAdapterArrayList;
+    public MainAdapter(ArrayList<MainModel> mainModelArrayList, Context ctx) {
+        this.mainModelArrayList = mainModelArrayList;
         this.ctx = ctx;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(ctx).inflate(R.layout.item_view_sample,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        final MainModel model = mainModelArrayList.get(position);
 
+        holder.item_image.setImageResource(model.getItemImage());
+        holder.item_name.setText(model.getItemName());
+        holder.item_price.setText(model.getItemPrice());
+        holder.item_description.setText(model.getItemDescription());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mainModelArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
