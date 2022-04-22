@@ -2,7 +2,6 @@ package com.sabghat.cashandcarry;
 
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,25 +32,22 @@ public class OrderDetail extends AppCompatActivity {
             binding.detailItemName.setText(name);
             binding.detailItemDescription.setText(description);
 
-            binding.orderButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            binding.orderButton.setOnClickListener(view -> {
 
-                    boolean isInserted = dbHelper.insertOrder(
-                            binding.detailYourName.getText().toString(),
-                            binding.detailPhoneNumber.getText().toString(),
-                            price,
-                            image,
-                            name,
-                            description,
-                            Integer.parseInt(binding.quantity.getText().toString())
-                    );
+                boolean isInserted = dbHelper.insertOrder(
+                        binding.detailYourName.getText().toString(),
+                        binding.detailPhoneNumber.getText().toString(),
+                        price,
+                        image,
+                        name,
+                        description,
+                        Integer.parseInt(binding.quantity.getText().toString())
+                );
 
-                    if (isInserted) {
-                        Toast.makeText(OrderDetail.this, "Order Added", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(OrderDetail.this, "Error", Toast.LENGTH_SHORT).show();
-                    }
+                if (isInserted) {
+                    Toast.makeText(OrderDetail.this, "Order Added", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(OrderDetail.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             });
         } else {
@@ -69,25 +65,22 @@ public class OrderDetail extends AppCompatActivity {
             binding.detailPhoneNumber.setText(cursor.getString(2));
 
             binding.orderButton.setText("Update Now");
-            binding.orderButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    boolean isUpdated = dbHelper.updateOrder(
-                            binding.detailYourName.getText().toString(),
-                            binding.detailPhoneNumber.getText().toString(),
-                            Integer.parseInt(binding.detailItemPrice.getText().toString()),
-                            image,
-                            binding.detailItemDescription.getText().toString(),
-                            binding.detailItemName.getText().toString(),
-                            1,
-                            id
-                    );
+            binding.orderButton.setOnClickListener(view -> {
+                boolean isUpdated = dbHelper.updateOrder(
+                        binding.detailYourName.getText().toString(),
+                        binding.detailPhoneNumber.getText().toString(),
+                        Integer.parseInt(binding.detailItemPrice.getText().toString()),
+                        image,
+                        binding.detailItemDescription.getText().toString(),
+                        binding.detailItemName.getText().toString(),
+                        1,
+                        id
+                );
 
-                    if (isUpdated) {
-                        Toast.makeText(OrderDetail.this, "Updated", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(OrderDetail.this, "Failed", Toast.LENGTH_SHORT).show();
-                    }
+                if (isUpdated) {
+                    Toast.makeText(OrderDetail.this, "Updated", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(OrderDetail.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
             });
         }

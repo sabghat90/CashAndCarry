@@ -72,7 +72,6 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
-
     }
 
     public ArrayList<OrdersModel> getOrders() {
@@ -91,7 +90,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 ordersModels.add(model);
             }
         }
-
         cursor.close();
         database.close();
         return ordersModels;
@@ -113,17 +111,6 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = getReadableDatabase();
         ContentValues values = new ContentValues();
 
-        /*
-        id = 0
-        name = 1
-        phone = 2
-        price = 3
-        image = 4
-        desc = 5
-        itemname = 6
-        quantity = 7
-         */
-
         values.put("name", name);
         values.put("phone", phone);
         values.put("price", price);
@@ -138,7 +125,6 @@ public class DBHelper extends SQLiteOpenHelper {
         } else {
             return true;
         }
-
     }
 
     public int deleteOrder(String id){

@@ -43,18 +43,15 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.item_price.setText(model.getItemPrice());
         holder.item_description.setText(model.getItemDescription());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent lunchDetailActivity = new Intent(ctx, OrderDetail.class);
-                lunchDetailActivity.putExtra("image",model.getItemImage());
-                lunchDetailActivity.putExtra("price",model.getItemPrice());
-                lunchDetailActivity.putExtra("description",model.getItemDescription());
-                lunchDetailActivity.putExtra("name",model.getItemName());
-                lunchDetailActivity.putExtra("type",1);
+        holder.itemView.setOnClickListener(view -> {
+            Intent lunchDetailActivity = new Intent(ctx, OrderDetail.class);
+            lunchDetailActivity.putExtra("image",model.getItemImage());
+            lunchDetailActivity.putExtra("price",model.getItemPrice());
+            lunchDetailActivity.putExtra("description",model.getItemDescription());
+            lunchDetailActivity.putExtra("name",model.getItemName());
+            lunchDetailActivity.putExtra("type",1);
 
-                ctx.startActivity(lunchDetailActivity);
-            }
+            ctx.startActivity(lunchDetailActivity);
         });
     }
 
