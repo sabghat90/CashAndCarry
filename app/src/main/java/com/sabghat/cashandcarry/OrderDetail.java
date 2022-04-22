@@ -1,5 +1,6 @@
 package com.sabghat.cashandcarry;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -19,38 +20,76 @@ public class OrderDetail extends AppCompatActivity {
         binding = ActivityOrderDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        final int image = getIntent().getIntExtra("image",0);
-        final int price = Integer.parseInt(getIntent().getStringExtra("price"));
-        final String name = getIntent().getStringExtra("name");
-        final String description = getIntent().getStringExtra("description");
-
-        binding.detailItemImage.setImageResource(image);
-        binding.detailItemPrice.setText(String.format("%d", price));
-        binding.detailItemName.setText(name);
-        binding.detailItemDescription.setText(description);
-
         final DBHelper dbHelper = new DBHelper(this);
 
-        binding.orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        if (getIntent().getIntExtra("type",0) == 1) {
+            final int image = getIntent().getIntExtra("image", 0);
+            final int price = Integer.parseInt(getIntent().getStringExtra("price"));
+            final String name = getIntent().getStringExtra("name");
+            final String description = getIntent().getStringExtra("description");
 
-                boolean isInserted = dbHelper.insertOrder(
-                        binding.detailYourName.getText().toString(),
-                        binding.detailPhoneNumber.getText().toString(),
-                        price,
-                        image,
-                        name,
-                        description,
-                        Integer.parseInt(binding.quantity.getText().toString())
-                );
+            binding.detailItemImage.setImageResource(image);
+            binding.detailItemPrice.setText(String.format("%d", price));
+            binding.detailItemName.setText(name);
+            binding.detailItemDescription.setText(description);
 
-                if (isInserted) {
-                    Toast.makeText(OrderDetail.this, "Order Added", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(OrderDetail.this, "Error", Toast.LENGTH_SHORT).show();
+            binding.orderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    boolean isInserted = dbHelper.insertOrder(
+                            binding.detailYourName.getText().toString(),
+                            binding.detailPhoneNumber.getText().toString(),
+                            price,
+                            image,
+                            name,
+                            description,
+                            Integer.parseInt(binding.quantity.getText().toString())
+                    );
+
+                    if (isInserted) {
+                        Toast.makeText(OrderDetail.this, "Order Added", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(OrderDetail.this, "Error", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            int id = getIntent().getIntExtra("id", 0);
+            Cursor cursor = dbHelper.getOrderById(id);
+
+            int image = cursor.getInt(4);
+
+            binding.detailItemImage.setImageResource(image);
+            binding.detailItemPrice.setText(String.format("%d", cursor.getInt(3)));
+            binding.detailItemName.setText(cursor.getString(6));
+            binding.detailItemDescription.setText(cursor.getString(5));
+
+            binding.detailYourName.setText(cursor.getString(1));
+            binding.detailPhoneNumber.setText(cursor.getString(2));
+
+            binding.orderButton.setText("Update Now");
+            binding.orderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    boolean isUpdated = dbHelper.updateOrder(
+                            binding.detailYourName.getText().toString(),
+                            binding.detailPhoneNumber.getText().toString(),
+                            Integer.parseInt(binding.detailItemPrice.getText().toString()),
+                            image,
+                            binding.detailItemDescription.getText().toString(),
+                            binding.detailItemName.getText().toString(),
+                            1,
+                            id
+                    );
+
+                    if (isUpdated) {
+                        Toast.makeText(OrderDetail.this, "Updated", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(OrderDetail.this, "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
     }
 }

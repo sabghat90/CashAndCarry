@@ -1,16 +1,22 @@
 package com.sabghat.cashandcarry.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.sabghat.cashandcarry.Helper.DBHelper;
 import com.sabghat.cashandcarry.Models.OrdersModel;
+import com.sabghat.cashandcarry.OrderDetail;
 import com.sabghat.cashandcarry.R;
 
 import java.util.ArrayList;
@@ -40,6 +46,42 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
         holder.orderNumber.setText(model.getOrderNumber());
         holder.orderPrice.setText(model.getPrice());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent lunchDetailsActivity = new Intent(ctx, OrderDetail.class);
+                lunchDetailsActivity.putExtra("id",Integer.parseInt(model.getOrderNumber()));
+                lunchDetailsActivity.putExtra("type",2);
+                ctx.startActivity(lunchDetailsActivity);
+            }
+        });
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                new AlertDialog.Builder(ctx)
+                        .setTitle("Delete Order")
+                        .setMessage("Are you sure to delete this order?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                DBHelper dbHelper = new DBHelper(ctx);
+                                if (dbHelper.deleteOrder(model.getOrderNumber()) > 0) {
+                                    Toast.makeText(ctx, "Deleted", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(ctx, "Error", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+                return false;
+            }
+        });
     }
 
     @Override

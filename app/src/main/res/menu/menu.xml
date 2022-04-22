@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/orders"
-        android:title="My Orders"
-        app:showAsAction="always"/>
+        android:icon="@drawable/ic_cart"
+        app:showAsAction="always"
+        android:title="cart"
+        />
 
 </menu>

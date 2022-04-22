@@ -51,6 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 lunchDetailActivity.putExtra("price",model.getItemPrice());
                 lunchDetailActivity.putExtra("description",model.getItemDescription());
                 lunchDetailActivity.putExtra("name",model.getItemName());
+                lunchDetailActivity.putExtra("type",1);
 
                 ctx.startActivity(lunchDetailActivity);
             }
