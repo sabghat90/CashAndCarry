@@ -59,24 +59,29 @@ public class OrderDetail extends AppCompatActivity {
             Cursor cursor = dbHelper.getOrderById(id);
 
             int image = cursor.getInt(4);
+            String price = String.format("%d", cursor.getInt(3));
+            String itemName = cursor.getString(6);
+            String desc = cursor.getString(5);
+            String yourName = cursor.getString(1);
+            String phoneNumber = cursor.getString(2);
 
             binding.detailItemImage.setImageResource(image);
-            binding.detailItemPrice.setText(String.format("%d", cursor.getInt(3)));
-            binding.detailItemName.setText(cursor.getString(6));
-            binding.detailItemDescription.setText(cursor.getString(5));
+            binding.detailItemPrice.setText(price);
+            binding.detailItemName.setText(itemName);
+            binding.detailItemDescription.setText(desc);
 
-            binding.detailYourName.setText(cursor.getString(1));
-            binding.detailPhoneNumber.setText(cursor.getString(2));
+            binding.detailYourName.setText(yourName);
+            binding.detailPhoneNumber.setText(phoneNumber);
 
             binding.orderButton.setText("Update Now");
             binding.orderButton.setOnClickListener(view -> {
                 boolean isUpdated = dbHelper.updateOrder(
-                        binding.detailYourName.getText().toString(),
-                        binding.detailPhoneNumber.getText().toString(),
-                        Integer.parseInt(binding.detailItemPrice.getText().toString()),
+                        yourName,
+                        phoneNumber,
+                        Integer.parseInt(price),
                         image,
-                        binding.detailItemDescription.getText().toString(),
-                        binding.detailItemName.getText().toString(),
+                        itemName,
+                        desc,
                         1,
                         id
                 );
