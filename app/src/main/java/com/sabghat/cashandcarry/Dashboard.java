@@ -28,16 +28,22 @@ public class Dashboard extends AppCompatActivity {
 
         ArrayList<MainModel> mainModelArrayList = new ArrayList<>();
 
-        mainModelArrayList.add(new MainModel(R.drawable.small_pizza,"Small Pizza","3","I Like " +
-                "Small Pizza."));
+
         mainModelArrayList.add(new MainModel(R.drawable.burger,"Burger","5","I Like Pizza."));
         mainModelArrayList.add(new MainModel(R.drawable.burger_fries,"Burger + Fires","7","I Like" +
                 " Pizza."));
-        mainModelArrayList.add(new MainModel(R.drawable.large_pizza,"Large Pizza","10","I Like " +
-                "Pizza."));
-        mainModelArrayList.add(new MainModel(R.drawable.mix_rice,"Mix Rice","19","I Like Pizza."));
-        mainModelArrayList.add(new MainModel(R.drawable.rice,"Rice","9","I Like Pizza."));
-        mainModelArrayList.add(new MainModel(R.drawable.white_rice,"Pizza","3","I Like Pizza."));
+        mainModelArrayList.add(new MainModel(R.drawable.chicken, "Chicken + Tomato Salad","20",
+                "Chicken, tomato salad close up"));
+        mainModelArrayList.add(new MainModel(R.drawable.spicy_korean_tteokbokki,"Spicy Korean " +
+                "Tteokbokki","14",
+                "Spicy Korean Tteokbokki Dish"));
+        mainModelArrayList.add(new MainModel(R.drawable.french_fries,"French Fries","6","Taste " +
+                "the fires and enjoy"));
+        mainModelArrayList.add(new MainModel(R.drawable.salad,"Salad","3","Salad is always will " +
+                "be your best"));
+        mainModelArrayList.add(new MainModel(R.drawable.pasta,"Pasta","5","Pasta is awesome"));
+        mainModelArrayList.add(new MainModel(R.drawable.muffins,"Muffins","8","Taste the Muffins"));
+
 
         MainAdapter adapter = new MainAdapter(mainModelArrayList,this);
         binding.recyclerview.setAdapter(adapter);

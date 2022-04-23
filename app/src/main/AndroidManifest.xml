@@ -11,10 +11,12 @@
         android:theme="@style/Theme.CashAndCarry">
         <activity
             android:name=".OrderDetail"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".Dashboard"/>
         <activity
             android:name=".Order"
-            android:exported="false"/>
+            android:exported="false"
+            android:parentActivityName=".Dashboard"/>
         <activity
             android:name=".Dashboard"
             android:exported="true">

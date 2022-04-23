@@ -19,6 +19,8 @@ public class OrderDetail extends AppCompatActivity {
         binding = ActivityOrderDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final DBHelper dbHelper = new DBHelper(this);
 
         if (getIntent().getIntExtra("type",0) == 1) {
