@@ -18,14 +18,12 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/detail_item_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/pasta" />
 
             <TextView
-                android:id="@+id/detail_item_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/allerta"
@@ -44,13 +42,11 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/subtract"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     app:srcCompat="@drawable/minus" />
 
                 <TextView
-                    android:id="@+id/quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -62,7 +58,6 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/add"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     app:srcCompat="@drawable/add" />
@@ -79,7 +74,6 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/detail_item_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -89,7 +83,6 @@
             android:text="@string/detail_description" />
 
         <EditText
-            android:id="@+id/detail_your_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
@@ -103,7 +96,6 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/detail_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_background"
@@ -116,7 +108,6 @@
             android:autofillHints="" />
 
         <TextView
-            android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -133,7 +124,6 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$"
@@ -143,7 +133,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/detail_item_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4"
@@ -155,7 +144,6 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/order_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

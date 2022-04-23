@@ -42,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public boolean insertOrder(String name, String phone, int price, int image, String desc,
+    public boolean insertOrder(String name, String phone, double price, int image, String desc,
                                String orderItemName, int quantity){
         SQLiteDatabase database = getReadableDatabase();
         ContentValues values = new ContentValues();

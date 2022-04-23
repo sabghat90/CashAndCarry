@@ -37,12 +37,13 @@ public class Dashboard extends AppCompatActivity {
         mainModelArrayList.add(new MainModel(R.drawable.spicy_korean_tteokbokki,"Spicy Korean " +
                 "Tteokbokki","14",
                 "Spicy Korean Tteokbokki Dish"));
-        mainModelArrayList.add(new MainModel(R.drawable.french_fries,"French Fries","6","Taste " +
+        mainModelArrayList.add(new MainModel(R.drawable.french_fries,"French Fries","6.5","Taste " +
                 "the fires and enjoy"));
         mainModelArrayList.add(new MainModel(R.drawable.salad,"Salad","3","Salad is always will " +
                 "be your best"));
         mainModelArrayList.add(new MainModel(R.drawable.pasta,"Pasta","5","Pasta is awesome"));
-        mainModelArrayList.add(new MainModel(R.drawable.muffins,"Muffins","8","Taste the Muffins"));
+        mainModelArrayList.add(new MainModel(R.drawable.muffins,"Muffins","8.7","Taste the " +
+                "Muffins"));
 
 
         MainAdapter adapter = new MainAdapter(mainModelArrayList,this);

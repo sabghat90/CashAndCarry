@@ -1,5 +1,6 @@
 package com.sabghat.cashandcarry;
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -13,6 +14,7 @@ public class OrderDetail extends AppCompatActivity {
 
     ActivityOrderDetailBinding binding;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +27,12 @@ public class OrderDetail extends AppCompatActivity {
 
         if (getIntent().getIntExtra("type",0) == 1) {
             final int image = getIntent().getIntExtra("image", 0);
-            final int price = Integer.parseInt(getIntent().getStringExtra("price"));
+            final double price = Double.parseDouble(getIntent().getStringExtra("price"));
             final String name = getIntent().getStringExtra("name");
             final String description = getIntent().getStringExtra("description");
 
             binding.detailItemImage.setImageResource(image);
-            binding.detailItemPrice.setText(String.format("%d", price));
+            binding.detailItemPrice.setText(String.format("%.2f", price));
             binding.detailItemName.setText(name);
             binding.detailItemDescription.setText(description);
 
