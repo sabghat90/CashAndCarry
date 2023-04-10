@@ -49,8 +49,11 @@ public class Dashboard extends AppCompatActivity {
         MainAdapter adapter = new MainAdapter(mainModelArrayList,this);
         binding.recyclerview.setAdapter(adapter);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        binding.recyclerview.setLayoutManager(layoutManager);
+        // Create a LinearLayoutManager to manage the layout of the RecyclerView.
+LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+// Set the layout manager for the RecyclerView to the LinearLayoutManager we created.
+binding.recyclerview.setLayoutManager(layoutManager);
     }
 
     @Override

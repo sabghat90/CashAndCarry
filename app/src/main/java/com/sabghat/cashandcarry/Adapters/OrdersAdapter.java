@@ -53,11 +53,14 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
         });
 
         holder.itemView.setOnLongClickListener(view -> {
+            // Create an alert dialog that asks the user to confirm the deletion of the order
             new AlertDialog.Builder(ctx)
                     .setTitle("Delete Order")
                     .setMessage("Are you sure to delete this order?")
                     .setPositiveButton("Yes", (dialogInterface, i) -> {
+                        // Create a database helper
                         DBHelper dbHelper = new DBHelper(ctx);
+                        // Delete the order from the database
                         if (dbHelper.deleteOrder(model.getOrderNumber()) > 0) {
                             Toast.makeText(ctx, "Deleted", Toast.LENGTH_SHORT).show();
                         } else {
@@ -67,6 +70,12 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.viewHolder
                     .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel()).show();
             return false;
         });
+    }
+
+    // create a function to notify the adapter that the data has changed
+    public void notifyDataChanged(ArrayList<OrdersModel> ordersModelArrayList) {
+        this.ordersModelArrayList = ordersModelArrayList;
+        notifyDataSetChanged();
     }
 
     @Override
